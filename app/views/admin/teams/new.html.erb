@@ -1,0 +1,14 @@
+<h3>チーム登録</h3>
+
+<%#= form_with model: @league,  url: admin_leagues_path, method: :post do |f| %>
+  <p>League</p>
+  <%#= f.text_field :name %>
+  <%#= f.submit 'Create' %>
+<%# end %>
+
+<%= form_with model: @team, url: admin_teams_path, method: :post do |f| %>
+  <p>Team</p>
+  <%#= f.select :league_id, options_from_collection_for_select(@leagues.name, :id, :name) %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Create' %>
+<% end %>

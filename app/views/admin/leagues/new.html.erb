@@ -1,0 +1,7 @@
+<h3>リーグ登録</h3>
+
+<%= form_with model: @league,  url: admin_league_index_path, method: :post do |f| %>
+  <p>League</p>
+  <%= f.text_field :name%>
+  <%= f.submit 'Create' %>
+<% end %>
