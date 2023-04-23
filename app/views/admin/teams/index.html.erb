@@ -1,9 +1,12 @@
 <h3>チーム一覧</h3>
 
+<%= link_to "チーム追加", new_admin_team_path %>
+
 <table>
   <thead>
     <tr>
       <th>League</th>
+      <th></th>
       <th>Team</th>
       <th></th>
       <th></th>
@@ -13,7 +16,8 @@
   <tbody>
     <% @teams.each do |team| %>
     <tr>
-      <td><%#= team.league.name %></td>
+      <td><%= team.league.name %></td>
+      <td><%= link_to "編集", edit_admin_league_path(team.league_id) %></td>
       <td><%= team.name %></td>
       <td><%= link_to "編集", edit_admin_team_path(team.id) %></td>
       <td>削除</td>

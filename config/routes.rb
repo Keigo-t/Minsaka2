@@ -18,7 +18,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 namespace :admin do
     root to: 'posts#index'
-    resources :leagues, only: [:new, :create, :edit, :destroy]
+    resources :leagues, only: [:new, :create, :edit, :update, :destroy]
     resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :create, :edit, :update, :destroy]
