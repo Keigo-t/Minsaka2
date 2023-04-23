@@ -13,7 +13,7 @@ scope module: :public do
   end
 
 # 管理者
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+devise_for :admin, skip: [:passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 namespace :admin do

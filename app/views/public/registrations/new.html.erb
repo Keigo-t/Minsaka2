@@ -1,7 +1,12 @@
-<h2>Sign up</h2>
+<h2>会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -21,8 +26,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+
+    <%#= f.collection_select :team_id, Team.all, :id, :name, include_blank: "選択して下さい" %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "会員登録" %>
   </div>
 <% end %>
 

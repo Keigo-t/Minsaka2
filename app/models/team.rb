@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
 
   belongs_to :league
-  has_many :users
+  belongs_to :user
 
 end
