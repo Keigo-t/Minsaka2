@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :team
+  belongs_to :team
 
   # フォローをした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -29,5 +29,10 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+   # id_deletedがfalseならtrueを返すようにしている
+  # def active_for_authentication?
+  #   super && (is_deleted == false)
+  # end
 
 end

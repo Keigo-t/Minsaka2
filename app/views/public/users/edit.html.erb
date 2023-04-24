@@ -1,0 +1,15 @@
+<h3>Profile Edit</h3>
+
+<%= form_with model: @user, url: user_path, pethod: :patch do |f| %>
+<p>ニックネーム</p>
+<%= f.text_field :name %>
+
+<p>お気に入りチーム</p>
+<%#= f.select :league_id, options_from_collection_for_select(League.all, :id, :name) %>
+<%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
+
+<p>一言紹介</p>
+<%= f.text_area :introduction %>
+
+<%= f.submit '変更する' %>
+<% end %>

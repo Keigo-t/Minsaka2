@@ -1,0 +1,9 @@
+<h3>My Page</h3>
+
+<%= link_to "→Edit", edit_user_path(@user) %><br>
+<%= link_to "→Follow Members", root_path %>
+
+<p><%= @user.name %></p>
+<p>お気に入りチーム</p>
+<p><%= @user.team.name %></p>
+<p><%= @user.introduction %></p>

@@ -1,14 +1,10 @@
 class Admin::TeamsController < ApplicationController
 
   def new
-    # @league = League.new
     @team = Team.new
   end
 
   def create
-    # @league = League.new(league_params)
-    # @league.save
-    # redirect_to admin_teams
     @team = Team.new(team_params)
     @team.save
     redirect_to admin_teams_path

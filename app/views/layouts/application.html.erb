@@ -24,10 +24,10 @@
             <ul class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
-              <p>ようこそ、<%= current_customer.name %>さん！</p>
+              <p>ようこそ、<%= current_user.name %>さん！</p>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'Profile', post_path(current_user.id) %>
+                  <%= link_to 'Profile', user_path(current_user.id) %>
                 </button>
               </li>
               <li class="nav-item">
@@ -80,6 +80,11 @@
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
                   <%= link_to 'Sign Up', new_user_registration_path %>
+                </button>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-light">
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %>
                 </button>
               </li>
               <!--<li class="nav-item">-->

@@ -6,7 +6,7 @@ class Admin::LeaguesController < ApplicationController
 
   def create
     @league = League.new(league_params)
-    @league.save!
+    @league.save
     redirect_to new_admin_team_path
   end
 
