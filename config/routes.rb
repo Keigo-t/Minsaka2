@@ -21,7 +21,7 @@ namespace :admin do
     resources :leagues, only: [:new, :create, :edit, :update, :destroy]
     resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :create, :edit, :update, :destroy]
+    resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

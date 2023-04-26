@@ -1,6 +1,8 @@
 <h3><%= @user.name %></h3>
 
 <p><%= @user.is_deleted %></p>
-<%#= @user.each do |user| %>
-  <%#= user.post %>
-<%# end %>
+<%= @user.posts.each do |user| %>
+  <%= user.created_at %>
+  <%= user.post %>
+  "削除"
+<% end %>

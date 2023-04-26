@@ -24,6 +24,11 @@ class Admin::TeamsController < ApplicationController
     redirect_to admin_teams_path
   end
 
+  def destroy
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to admin_teams_path
+  end
 
   private
 
