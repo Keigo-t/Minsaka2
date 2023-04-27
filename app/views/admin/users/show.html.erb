@@ -1,6 +1,17 @@
 <h3><%= @user.name %></h3>
 
-<p><%= @user.is_deleted %></p>
+<p>
+  <%= @user.is_deleted ? '現会員' : '退会済み' %>
+</p>
+<%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+  <%= f.radio_button :is_deleted, "現会員" %>
+  <%= f.label :is_deleted_true, "現会員" %><br>
+  <%= f.radio_button :is_deleted, "退会済み" %>
+  <%= f.label :is_deleted_false, "退会済み" %><br>
+  <%= f.submit "更新", class:"btn btn-danger" %>
+<% end %>
+
+
 <%= @user.posts.each do |user| %>
   <%= user.created_at %>
   <%= user.post %>
