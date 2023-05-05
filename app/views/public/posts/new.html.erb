@@ -3,6 +3,6 @@
 <%= @user.team.name %>
 
 <%= form_with model: @post, url: posts_path, method: :post do |f| %>
-<%= f.text_area :post %>
-<%= f.submit '投稿' %>
+  <%= f.text_area :post %>
+  <%= f.submit '投稿' %>
 <% end %>

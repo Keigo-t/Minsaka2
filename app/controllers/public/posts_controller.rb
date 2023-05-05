@@ -16,6 +16,12 @@ class Public::PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @comment = current_user.comments.new
+    @comments = @post.comments
+  end
+
   private
 
   def post_params

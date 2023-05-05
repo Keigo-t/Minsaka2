@@ -8,8 +8,12 @@ devise_for :users,skip: [:passwords], controllers: {
 scope module: :public do
     root to: 'homes#top'
     get 'about' => "homes#about"
+    get 'search' => 'searches#search'
     resources :users, only: [:index, :show, :edit, :create, :update, :destroy]
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+      resources :favorites, only: [:create, :destroy]
+    end
   end
 
 # 管理者
@@ -19,7 +23,7 @@ devise_for :admin, skip: [:passwords] ,controllers: {
 namespace :admin do
     root to: 'posts#index'
     resources :leagues, only: [:new, :create, :edit, :update, :destroy]
-    resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+      resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
   end

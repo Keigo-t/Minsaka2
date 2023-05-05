@@ -1,4 +1,26 @@
 <%= @post.user.name %>
 
 <%= @post.post %>
-  <%#= @comment
+<% if @post.favorites?(current_user) %>
+    <!--一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
+    <%= link_to post_favorite_path(@post.id), method: :delete do %>
+        <span>♡</span>
+    <% end %>
+<% else %>
+    <!--一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ-->
+    <%= link_to post_favorites_path(@post.id), method: :post do %>
+        <span>❤️</span>
+    <% end %>
+<% end %>
+
+<%= form_with model: [@post, @comment], method: :post do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit 'コメント' %>
+<% end %>
+
+<%= @comments.each do |comment| %>
+  <%= comment.user.name %>
+  <%= comment.comment %>
+  <%#= link_to "削除", comment_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

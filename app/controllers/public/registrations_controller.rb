@@ -63,7 +63,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    params.require(:registration).permit(:name)
+    params.require(:registration).permit(:name, :team_id)
   end
 
 end

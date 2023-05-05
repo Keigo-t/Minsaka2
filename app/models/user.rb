@@ -35,4 +35,15 @@ class User < ApplicationRecord
   #   super && (is_deleted == false)
   # end
 
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("name LIKE?", "#{word}")
+    elsif search == "partial_match"
+      @user = User.where("name LIKE?","%#{word}%")
+    else
+      flash[:notice]="検索した内容がありません"
+      @user = User.all
+    end
+  end
+
 end

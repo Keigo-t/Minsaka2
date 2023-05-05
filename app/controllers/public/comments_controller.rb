@@ -6,10 +6,16 @@ class Public::CommentsController < ApplicationController
     redirect_to posts_path
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to posts_path
+  end
+
   private
 
   def comment_params
-    params.require(:commnet).permit(:comment, :post_id)
+    params.require(:comment).permit(:comment, :post_id)
   end
 
 end
