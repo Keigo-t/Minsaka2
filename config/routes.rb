@@ -9,7 +9,11 @@ scope module: :public do
     root to: 'homes#top'
     get 'about' => "homes#about"
     get 'search' => 'searches#search'
-    resources :users, only: [:index, :show, :edit, :create, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :create, :update, :destroy] do
+      resources :relationships, only: [:index, :create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resources :favorites, only: [:create, :destroy]

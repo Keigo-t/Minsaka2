@@ -1,8 +1,23 @@
-<%= link_to 'toukou', new_post_path %>
+<%= link_to '新規投稿', new_post_path %>
 
-<% @posts.each do |post| %>
-  <%= post.user.name %>
-  <%= link_to post_path(post.id) do %>
-    <%= post.post %>
-  <% end %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.user.name %></td>
+        <td>
+          <%= link_to post_path(post.id) do %>
+            <%= post.post %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
