@@ -30,10 +30,10 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-   # id_deletedがfalseならtrueを返すようにしている
-  # def active_for_authentication?
-  #   super && (is_deleted == false)
-  # end
+    # id_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == true)
+  end
 
   def self.looks(search, word)
     if search == "perfect_match"
@@ -43,6 +43,14 @@ class User < ApplicationRecord
     else
       flash[:notice]="検索した内容がありません"
       @user = User.all
+    end
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@exam.com') do |user|
+      user.name = "ゲストユーザー"
+      user.password = SecureRandom.urlsafe_base64
+      user.team = Team.find_by(name: "ブライトン・アンド・ホーヴ・アルビオンFC")
     end
   end
 

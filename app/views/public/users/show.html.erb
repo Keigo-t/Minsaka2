@@ -1,9 +1,26 @@
-<h3>My Page</h3>
+<% if @user.is_deleted == true %>
+  <h3><%= @user.name %></h3>
+<% else %>
+  <h3>退会済みのユーザー</h3>
+<% end %>
 
+<% if @user.is_deleted == true %>
 <%= link_to "→Edit", edit_user_path(@user) %><br>
-<%= link_to "→Follow Members", root_path %>
+<%= link_to "→Follow Members", root_path %><br>
+  <p>お気に入りチーム</p>
+  <p><%= @user.team.name %></p>
+  <p><%= @user.introduction %></p>
 
-<p><%= @user.name %></p>
-<p>お気に入りチーム</p>
-<p><%= @user.team.name %></p>
-<p><%= @user.introduction %></p>
+  <table class="table">
+    <tbody>
+      <% @user.posts.each do |post| %>
+        <tr>
+          <td>
+            <%= link_to post_path(post.id) do %>
+              <%= post.post %></td>
+            <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

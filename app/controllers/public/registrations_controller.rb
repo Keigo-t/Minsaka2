@@ -60,6 +60,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  before_action :ensure_normal_user, only: :update
+
+  def ensure_normal_user
+    if resource.email == 'guest@exam.com'
+      redirect_to root_path, alert: 'ゲストユーザーは編集できません。'
+    end
+  end
+
   private
 
   def user_params

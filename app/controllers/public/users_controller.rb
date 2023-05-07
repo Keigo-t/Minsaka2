@@ -14,6 +14,16 @@ class Public::UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def unsubscribe
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: false)
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def user_params
