@@ -21,6 +21,7 @@ scope module: :public do
     end
     get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
+    get '/posts/teammate' => 'posts#teammate', as: 'teammate'
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resources :favorites, only: [:create, :destroy]
@@ -36,7 +37,7 @@ namespace :admin do
     resources :leagues, only: [:new, :create, :edit, :update, :destroy]
       resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
+    resources :posts, only: [:show, :create, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

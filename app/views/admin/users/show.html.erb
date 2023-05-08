@@ -3,7 +3,7 @@
 <p>
   <%= @user.is_deleted ? '現会員' : '退会済み' %>
 </p>
-<%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+<%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
   <%= f.radio_button :is_deleted, "現会員" %>
   <%= f.label :is_deleted_true, "現会員" %><br>
   <%= f.radio_button :is_deleted, "退会済み" %>
@@ -12,8 +12,9 @@
 <% end %>
 
 
-<%= @user.posts.each do |user| %>
-  <%= user.created_at %>
-  <%= user.post %>
-  "削除"
+<% @user.posts.each do |post| %>
+  <%= post.created_at.strftime('%Y/%m/%d') %><br>
+  <%= link_to admin_post_path(post) do %>
+    <%= post.post %>
+  <% end %>
 <% end %>
