@@ -1,4 +1,8 @@
 <h3><%= @post.user.name %></h3>
 
 <%= @post.post %>
-<%= link_to "削除", admin_post_path, method: :destroy %>
+<%= link_to "削除", admin_post_path(@post), method: :delete %>
+
+<% @comments.each do |comment| %>
+  <%= comment.comment %>
+<% end %>

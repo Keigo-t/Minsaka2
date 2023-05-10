@@ -4,10 +4,10 @@
   <%= @user.is_deleted ? '現会員' : '退会済み' %>
 </p>
 <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
-  <%= f.radio_button :is_deleted, "現会員" %>
-  <%= f.label :is_deleted_true, "現会員" %><br>
-  <%= f.radio_button :is_deleted, "退会済み" %>
-  <%= f.label :is_deleted_false, "退会済み" %><br>
+  <%= f.radio_button :is_deleted, true, id: 'is_deleted_true' %>
+  <%= f.label :is_deleted_true, "現会員", for: 'is_deleted_true' %><br>
+  <%= f.radio_button :is_deleted, false, id: 'is_deleted_false' %>
+  <%= f.label :is_deleted_false, "退会済み", for: 'is_deleted_false' %><br>
   <%= f.submit "更新", class:"btn btn-danger" %>
 <% end %>
 
