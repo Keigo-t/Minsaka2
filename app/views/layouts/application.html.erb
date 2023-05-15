@@ -15,7 +15,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand" href="/"> <img src="assets/logo2.jpg"></a>
+          <a class="navbar-brand" href="/"> <img src="logo"></a>
           <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"-->
           <!--    arita-conntrols="navbarNavDropdown" arita-expanded="false" arita="Toggle navigation">-->
           <!--  <span class="navbar-toggler-icon"></span>-->
@@ -66,21 +66,21 @@
             <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'Teams', admin_teams_path %>
+                  <%= link_to 'チーム', admin_teams_path %>
                 </button>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'Users', admin_users_path %>
+                  <%= link_to '会員', admin_users_path %>
                 </button>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'Posts', admin_root_path %>
+                  <%= link_to '投稿', admin_root_path %>
                 </button>
               </li>
               <li class="nav-item">
-                <button type="button" class="btn btn-lightmr-5">
+                <button type="button" class="btn btn-light mr-5">
                   <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
                 </button>
               </li>
