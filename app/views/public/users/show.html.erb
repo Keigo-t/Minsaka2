@@ -1,15 +1,25 @@
-<% if @user.is_deleted == true %>
-  <h3><%= @user.name %></h3>
-<% else %>
-  <h3>退会済みのユーザー</h3>
-<% end %>
+<div class="user-name">
+  <% if @user.is_deleted == true %>
+    <h3><%= @user.name %></h3>
+  <% else %>
+    <h3>退会済みのユーザー</h3>
+  <% end %>
+</div>
 
-<% if @user.is_deleted == true %>
-<%= link_to "→Edit", edit_user_path(@user) %><br>
-<%= link_to "→Follow Members", root_path %><br>
+<div class="user-menu">
+  <% if @user.is_deleted == true %>
+    <% if @user==current_user %>
+      <%= link_to "→Edit", edit_user_path(@user) %><br>
+      <%= link_to "→Follow Members", root_path %><br>
+    <% end %>
+</div>
+
+<div class="user-detail">
   <p>お気に入りチーム</p>
   <p><%= @user.team.name %></p>
+  <p>一言コメント</p>
   <p><%= @user.introduction %></p>
+</div>
 
   <table class="table">
     <tbody>

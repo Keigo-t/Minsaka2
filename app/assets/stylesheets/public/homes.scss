@@ -9,8 +9,8 @@
   color:#191970;
 }
 
-body {
-  background-image: url('top2.jpg');
+.body {
+  background-image: url('home.jpg');
   background-size: cover;
 }
 
@@ -18,14 +18,12 @@ body {
   text-align:center;
   padding-top:30px;
   font-size:60px;
-  color:#191970;
 }
 
 .about-visual-text{
   text-align:center;
   padding-top:30px;
   font-size:40px;
-  color:#191970;
 }
 
 .sub-about-visual-text{
@@ -33,4 +31,26 @@ body {
   padding-top:30px;
   font-size:15px;
   color:#dc143c;
+}
+
+.link_top{
+  color:#191970;
+}
+
+.user{
+  text-align:center;
+  padding-top:30px;
+  font-size:17px;
+}
+
+.new-user{
+  text-align:center;
+  padding-top:30px;
+  font-size:17px;
+}
+
+.guest{
+  text-align:center;
+  padding-top:30px;
+  font-size:17px;
 }

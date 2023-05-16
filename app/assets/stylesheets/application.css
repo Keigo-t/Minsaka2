@@ -14,6 +14,12 @@
  *= require_self
  */
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  color:#FFFFFF;
+}
 
 /*--------------------------------------------------------------
 # Footer
@@ -66,4 +72,19 @@
 
 .credits {
   font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# body
+--------------------------------------------------------------*/
+
+body{
+  /*background-image: url('stadium2.jpg');*/
+  background-color:#000000;
+  background-size: cover;
+  color:#FFFFFF;
+}
+
+.link{
+  color:#FFFFFF;
 }

@@ -1,9 +1,19 @@
-<div class="main-visual">
-  <div class="main-visual-content">
-    <p class="main-visual-text">
-      サッカーにもっと情熱を。<br>
-      みんなでサッカーを応援しよう！
+<body class="body">
+  <div class="main-visual">
+    <div class="main-visual-content">
+      <p class="main-visual-text">
+        サッカーにもっと情熱を。<br>
+        みんなでサッカーを応援しよう！
+      </p>
+    </div>
+    <p class="user">
+      <%= link_to '会員の方はこちら', new_user_session_path, class: :link_top %>
+    </p>
+    <p class="new-user">
+      <%= link_to '会員登録する', new_user_registration_path, class: :link_top %>
+    </p>
+    <p class="guest">
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: :link_top %>
     </p>
   </div>
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-</div>
+</body>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resources)
     if user_signed_in?
-      root_path
+      posts_path
     else
       admin_root_path
     end

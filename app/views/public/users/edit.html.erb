@@ -11,6 +11,11 @@
 <p>一言紹介</p>
 <%= f.text_area :introduction %>
 
+<div class="field">
+  <p>メールアドレス</p>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
 <%= f.submit '変更する' %>
 <% end %>
 
