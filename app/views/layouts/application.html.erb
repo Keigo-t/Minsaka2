@@ -61,22 +61,22 @@
             <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'チーム', admin_teams_path %>
+                  <%= link_to 'チーム', admin_teams_path, class: :admin_link %>
                 </button>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to '会員', admin_users_path %>
+                  <%= link_to '会員', admin_users_path, class: :admin_link %>
                 </button>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to '投稿', admin_root_path %>
+                  <%= link_to '投稿', admin_root_path, class: :admin_link %>
                 </button>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-light mr-5">
-                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: :admin_link %>
                 </button>
               </li>
             <% else %>

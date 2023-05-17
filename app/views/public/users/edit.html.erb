@@ -1,22 +1,24 @@
-<h3>Profile Edit</h3>
+<body class="public-body">
+  <h3>Profile Edit</h3>
 
-<%= form_with model: @user, url: user_path, pethod: :patch do |f| %>
-<p>ニックネーム</p>
-<%= f.text_field :name %>
+  <%= form_with model: @user, url: user_path, pethod: :patch do |f| %>
+  <p>ニックネーム</p>
+  <%= f.text_field :name %>
 
-<p>お気に入りチーム</p>
-<%#= f.select :league_id, options_from_collection_for_select(League.all, :id, :name) %>
-<%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
+  <p>お気に入りチーム</p>
+  <%#= f.select :league_id, options_from_collection_for_select(League.all, :id, :name) %>
+  <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
 
-<p>一言紹介</p>
-<%= f.text_area :introduction %>
+  <p>一言紹介</p>
+  <%= f.text_area :introduction %>
 
-<div class="field">
-  <p>メールアドレス</p>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
+  <div class="field">
+    <p>メールアドレス</p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
-<%= f.submit '変更する' %>
-<% end %>
+  <%= f.submit '変更する' %>
+  <% end %>
 
-<%= link_to "→退会", unsubscribe_path(@user.id) %>
+  <%= link_to "→退会", unsubscribe_path(@user.id) %>
+</body>

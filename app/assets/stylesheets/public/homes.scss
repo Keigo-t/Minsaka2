@@ -2,16 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  color:#191970;
-}
-
 .body {
   background-image: url('home.jpg');
   background-size: cover;
+  color:#191970;
 }
 
 .main-visual-text{

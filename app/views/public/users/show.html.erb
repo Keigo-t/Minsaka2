@@ -1,36 +1,38 @@
-<div class="user-name">
-  <% if @user.is_deleted == true %>
-    <h3><%= @user.name %></h3>
-  <% else %>
-    <h3>退会済みのユーザー</h3>
-  <% end %>
-</div>
-
-<div class="user-menu">
-  <% if @user.is_deleted == true %>
-    <% if @user==current_user %>
-      <%= link_to "→Edit", edit_user_path(@user) %><br>
-      <%= link_to "→Follow Members", root_path %><br>
+<body class="public-body">
+  <div class="user-name">
+    <% if @user.is_deleted == true %>
+      <h3><%= @user.name %></h3>
+    <% else %>
+      <h3>退会済みのユーザー</h3>
     <% end %>
-</div>
+  </div>
 
-<div class="user-detail">
-  <p>お気に入りチーム</p>
-  <p><%= @user.team.name %></p>
-  <p>一言コメント</p>
-  <p><%= @user.introduction %></p>
-</div>
-
-  <table class="table">
-    <tbody>
-      <% @user.posts.each do |post| %>
-        <tr>
-          <td>
-            <%= link_to post_path(post.id) do %>
-              <%= post.post %></td>
-            <% end %>
-        </tr>
+  <div class="user-menu">
+    <% if @user.is_deleted == true %>
+      <% if @user==current_user %>
+        <%= link_to "→Edit", edit_user_path(@user) %><br>
+        <%#= link_to "→Follow Members", root_path %><br>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
+  </div>
+
+  <div class="user-detail">
+    <p>お気に入りチーム</p>
+    <p><%= @user.team.name %></p>
+    <p>一言コメント</p>
+    <p><%= @user.introduction %></p>
+  </div>
+
+    <table class="table">
+      <tbody>
+        <% @user.posts.each do |post| %>
+          <tr>
+            <td>
+              <%= link_to post_path(post.id) do %>
+                <%= post.post %></td>
+              <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</body>
