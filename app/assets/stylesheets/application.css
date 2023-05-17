@@ -79,7 +79,6 @@
 --------------------------------------------------------------*/
 
 body{
-  /*background-image: url('stadium2.jpg');*/
   background-color:#000000;
   background-size: cover;
   color:#FFFFFF;
@@ -87,4 +86,8 @@ body{
 
 .link{
   color:#FFFFFF;
+}
+
+.textbox{
+  color:#000000;
 }

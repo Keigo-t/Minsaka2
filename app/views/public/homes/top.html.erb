@@ -12,8 +12,11 @@
     <p class="new-user">
       <%= link_to '会員登録する', new_user_registration_path, class: :link_top %>
     </p>
-    <p class="guest">
-      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: :link_top %>
-    </p>
+    <% if @user == signed_in? %>
+    <% else %>
+      <p class="guest">
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: :link_top %>
+      </p>
+    <% end %>
   </div>
 </body>
