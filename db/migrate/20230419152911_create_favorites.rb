@@ -5,8 +5,8 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.timestamps
 
       #追加のカラム
-      t.references :user, null: false, foreign_key: true
-      t.references :post, null: false, foreign_key: true
+      t.bigint :user_id, null: false, foreign_key: true
+      t.bigint :post_id, null: false, foreign_key: true
     end
   end
 end
