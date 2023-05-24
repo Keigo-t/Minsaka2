@@ -50,7 +50,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@exam.com') do |user|
       user.name = "ゲストユーザー"
       user.password = SecureRandom.urlsafe_base64
-      user.team = Team.find_by(name: "ブライトン・アンド・ホーヴ・アルビオンFC")
+      user.team_id = Team.find_or_create_by!(name: "ブライトン・アンド・ホーヴ・アルビオンFC")&.id
     end
   end
 
